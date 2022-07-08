@@ -3,7 +3,7 @@ package com.hillel.kucherenko.hw2;
 public class Task23 {
     public static void main(String[] args) {
         int[] fibAr = new int[20];
-        String fibResult = "Первые 20 чисел Фибоначчи:  0, 1, ";
+        String fibResult = "РџРµСЂРІС‹Рµ 20 С‡РёСЃРµР» Р¤РёР±РѕРЅР°С‡С‡Рё:  0, 1, ";
 
         fibAr[0] = 0;
         fibAr[1] = 1;
