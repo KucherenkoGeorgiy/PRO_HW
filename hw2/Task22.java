@@ -3,7 +3,7 @@ package com.hillel.kucherenko.hw2;
 public class Task22 {
     public static void main(String[] args) {
         int[] myArray = {10, 20, 22, 43, 63, 75, 434, 5, 23, 2, 33, 44, 77, 88, 9};
-        String result = "Простые числа: ";
+        String result = "Простые числа:  ";
 
         for (int i = 0; i < myArray.length; i++) {
             if (myArray[i] != 2) {

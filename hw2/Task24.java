@@ -13,7 +13,7 @@ public class Task24 {
                 minValue = myArray[i];
             }
         }
-        System.out.println("Минимальное значение массива: " + minValue);
-        System.out.println("Максимальное значение массива: " + maxValue);
+        System.out.println("Минимальное значение массива:  " + minValue);
+        System.out.println("Максимальное значение массива:  " + maxValue);
     }
 }
