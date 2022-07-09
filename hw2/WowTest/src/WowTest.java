@@ -1,5 +1,5 @@
 public class WowTest {
     public static void main(String[] args) {
-        System.out.println("куцукцу");
+        System.out.println("РџСЂРёРІРµС‚, Р“РµРѕСЂРіРёР№");
     }
 }
