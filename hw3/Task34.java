@@ -3,7 +3,7 @@ package com.hillel.kucherenko.hw3;
 public class Task34 {
 
     public static void main(String[] args) {
-        int k = 5;
+        int k = 12;
         int matrixVal = (int) Math.ceil(Math.sqrt(k));
         int matrixTotal = matrixVal * matrixVal;
 
