@@ -7,7 +7,7 @@ public class CheckForMinAndMax {
         this.inputArray = inputArray;
     }
 
-    public ResultOfMinMaxSearch findMaxValue (){
+    public ResultOfMinMaxSearch findMaxValue() {
         int maxQty = lengthOfNumber(inputArray[0]);
         int maxIndex = 0;
 
@@ -17,11 +17,11 @@ public class CheckForMinAndMax {
                 maxIndex = i;
             }
         }
-        return (new ResultOfMinMaxSearch(maxQty, maxIndex));
+        return (new ResultOfMinMaxSearch(inputArray[maxIndex], maxQty));
 
     }
 
-    public ResultOfMinMaxSearch findMinValue (){
+    public ResultOfMinMaxSearch findMinValue() {
         int minQty = lengthOfNumber(inputArray[0]);
         int minIndex = 0;
 
@@ -31,10 +31,10 @@ public class CheckForMinAndMax {
                 minIndex = i;
             }
         }
-        return (new ResultOfMinMaxSearch(minQty, minIndex));
+        return (new ResultOfMinMaxSearch(inputArray[minIndex], minQty));
     }
 
-     int lengthOfNumber(int currNumb) {
+    int lengthOfNumber(int currNumb) {
         int qty = 1;
         currNumb /= 10;
         while (currNumb != 0) {

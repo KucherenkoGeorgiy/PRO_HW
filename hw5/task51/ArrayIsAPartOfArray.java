@@ -1,5 +1,6 @@
 package com.hillel.kucherenko.hw5.task51;
-public class ArrayIsAPartOfArray{
+
+public class ArrayIsAPartOfArray {
     int[] bigArray;
     int[] smallArray;
 
