@@ -12,6 +12,7 @@ public class Triangle {
     final boolean isIsosceles;
     final boolean isEquilateral;
     final boolean isRectangular;
+    final boolean isRegular;
 
 
     public Triangle(Point pointA, Point pointB, Point pointC) {
@@ -33,6 +34,8 @@ public class Triangle {
         isRectangular = Math.pow(sideA, 2) == (Math.pow(sideB, 2) + Math.pow(sideC, 2))
                 || Math.pow(sideB, 2) == (Math.pow(sideA, 2) + Math.pow(sideC, 2))
                 || Math.pow(sideC, 2) == (Math.pow(sideB, 2) + Math.pow(sideA, 2));
+
+        isRegular = !isIsosceles && !isRectangular && !isEquilateral;
     }
 }
 
