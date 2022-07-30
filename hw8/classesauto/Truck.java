@@ -1,6 +1,7 @@
-package com.hillel.kucherenko.hw8;
+package com.hillel.kucherenko.hw8.classesauto;
 
-public class Truck extends Transport{
+
+public class Truck extends Transport {
     private int loadCapacity;
 
     public Truck(int yearOfProduceOfTransport, String brandOfTransport, String modelOfTransport, int price, double fuelConsumption, int maxSpeed, int loadCapacity) {

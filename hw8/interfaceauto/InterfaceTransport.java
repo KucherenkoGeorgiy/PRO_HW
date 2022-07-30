@@ -1,4 +1,4 @@
-package com.hillel.kucherenko.hw8;
+package com.hillel.kucherenko.hw8.interfaceauto;
 
 public interface InterfaceTransport {
 
@@ -26,5 +26,6 @@ public interface InterfaceTransport {
 
     public void setMaxSpeed(int maxSpeed);
 
+    public String toString();
 
 }

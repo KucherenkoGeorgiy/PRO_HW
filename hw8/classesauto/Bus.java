@@ -1,6 +1,7 @@
-package com.hillel.kucherenko.hw8;
+package com.hillel.kucherenko.hw8.classesauto;
 
-public class Bus extends Transport{
+
+public class Bus extends Transport {
     private int quantityOfPassengers;
 
 

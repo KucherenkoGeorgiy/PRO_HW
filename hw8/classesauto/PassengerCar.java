@@ -1,6 +1,7 @@
-package com.hillel.kucherenko.hw8;
+package com.hillel.kucherenko.hw8.classesauto;
 
-public class PassengerCar extends Transport{
+
+public class PassengerCar extends Transport {
     private boolean isForCourier;
 
     public PassengerCar(int yearOfProduceOfTransport, String brandOfTransport, String modelOfTransport, int price, double fuelConsumption, int maxSpeed, boolean isForCourier) {
