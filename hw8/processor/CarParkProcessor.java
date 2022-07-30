@@ -6,6 +6,7 @@ import com.hillel.kucherenko.hw8.classesauto.PassengerCar;
 import com.hillel.kucherenko.hw8.classesauto.Truck;
 import com.hillel.kucherenko.hw8.classespark.Park;
 import com.hillel.kucherenko.hw8.interfaceauto.InterfaceTransport;
+import com.hillel.kucherenko.hw8.interfacepark.InterfaceTaxipark;
 
 public class CarParkProcessor {
 
@@ -18,13 +19,12 @@ public class CarParkProcessor {
                 new Truck(2006, "MAN", "MAN100", 55000, 38, 162, 22000)
         };
 
-        Park myPark = new Park(park);
-        System.out.println(myPark.getTotalCostOfMyPark());
+        InterfaceTaxipark myPark = new Park(park);
         System.out.println(myPark);
+        System.out.println(myPark.getTotalCostOfMyPark());
         myPark.sortMyPark();
         System.out.println(myPark);
-        System.out.println("==========");
-        System.out.println(park);
+        System.out.println();
         System.out.println(myPark.searchByMinAndMaxSpeed(109, 161));
 
     }
