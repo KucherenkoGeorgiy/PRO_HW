@@ -4,7 +4,6 @@ package com.hillel.kucherenko.hw8.classesauto;
 public class Bus extends Transport {
     private int quantityOfPassengers;
 
-
     public Bus(int yearOfProduceOfTransport, String brandOfTransport, String modelOfTransport, int price, double fuelConsumption, int maxSpeed, int quantityOfPassengers) {
         super(yearOfProduceOfTransport, brandOfTransport, modelOfTransport, price, fuelConsumption, maxSpeed);
         this.quantityOfPassengers = quantityOfPassengers;

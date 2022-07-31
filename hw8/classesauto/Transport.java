@@ -1,9 +1,7 @@
 package com.hillel.kucherenko.hw8.classesauto;
 
 
-import com.hillel.kucherenko.hw8.interfaceauto.InterfaceTransport;
-
-abstract class Transport implements InterfaceTransport {
+public abstract class Transport {
     private int yearOfProduceOfTransport;
     private String brandOfTransport;
     private String modelOfTransport;

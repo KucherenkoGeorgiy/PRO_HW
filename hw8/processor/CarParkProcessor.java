@@ -1,17 +1,16 @@
 package com.hillel.kucherenko.hw8.processor;
 
-
 import com.hillel.kucherenko.hw8.classesauto.Bus;
 import com.hillel.kucherenko.hw8.classesauto.PassengerCar;
+import com.hillel.kucherenko.hw8.classesauto.Transport;
 import com.hillel.kucherenko.hw8.classesauto.Truck;
 import com.hillel.kucherenko.hw8.classespark.Park;
-import com.hillel.kucherenko.hw8.interfaceauto.InterfaceTransport;
 import com.hillel.kucherenko.hw8.interfacepark.InterfaceTaxipark;
 
 public class CarParkProcessor {
 
     public static void main(String[] args) {
-        InterfaceTransport[] park = new InterfaceTransport[]{
+        Transport[] park = new Transport[]{
                 new PassengerCar(2020, "Skoda", "Fabia", 6000, 8.2, 160, true),
                 new PassengerCar(2020, "BMW", "x5", 33000, 6.3, 240, false),
                 new Bus(1995, "Ikarus", "ik200", 18000, 23, 130, 55),
@@ -25,14 +24,12 @@ public class CarParkProcessor {
         myPark.sortMyPark();
         System.out.println(myPark);
         System.out.println();
-        System.out.println(myPark.searchByMinAndMaxSpeed(109, 161));
-
+        printMyPark(myPark.searchByMinAndMaxSpeed(109, 161));
     }
 
-//        static void printMyPark(InterfaceTransport[] interfaceTransport) {
-//            for (int i = 0; i < interfaceTransport.length; i++) {
-//                System.out.println(interfaceTransport[i].toString());
-//            }
-//
-//        }
+    static void printMyPark(Transport[] transport) {
+        for (int i = 0; i < transport.length; i++) {
+            System.out.println(transport[i].toString());
+        }
+    }
 }

@@ -1,17 +1,17 @@
 package com.hillel.kucherenko.hw8.classespark;
 
-import com.hillel.kucherenko.hw8.interfaceauto.InterfaceTransport;
+import com.hillel.kucherenko.hw8.classesauto.Transport;
 import com.hillel.kucherenko.hw8.interfacepark.InterfaceTaxipark;
 
 public class Park implements InterfaceTaxipark {
-    InterfaceTransport[] myPark;
+    private Transport[] myPark;
 
-    public Park(InterfaceTransport[] myPark) {
+    public Park(Transport[] myPark) {
         this.myPark = myPark;
     }
 
     public void sortMyPark() {
-        InterfaceTransport tempValueOfTransportUnit;
+        Transport tempValueOfTransportUnit;
         for (int i = 0; i < myPark.length; i++) {
             for (int j = 0; j < myPark.length - i - 1; j++) {
                 if (myPark[j].getFuelConsumption() > myPark[j + 1].getFuelConsumption()) {
@@ -26,30 +26,30 @@ public class Park implements InterfaceTaxipark {
     public int getTotalCostOfMyPark() {
         int totalCost = 0;
 
-        for (InterfaceTransport transportUnit :
+        for (Transport transportUnit :
                 myPark) {
             totalCost += transportUnit.getPrice();
         }
         return totalCost;
     }
 
-    public Park searchByMinAndMaxSpeed(int minSpeed, int maxSpeed) {
-        InterfaceTransport[] resultArray = {};
+    public Transport[] searchByMinAndMaxSpeed(int minSpeed, int maxSpeed) {
+        Transport[] resultArray = {};
         System.out.println("Min=" + minSpeed + ", Max=" + maxSpeed);
         for (int i = 0; i < myPark.length; i++) {
             if (maxSpeed >= myPark[i].getMaxSpeed() && minSpeed <= myPark[i].getMaxSpeed()) {
                 resultArray = addTransportToArray(resultArray, i, myPark);
             }
         }
-        return (new Park(resultArray));
+        return (resultArray);
     }
 
-    private InterfaceTransport[] addTransportToArray(InterfaceTransport[] resultArray, int i, InterfaceTransport[] myPark) {
+    private Transport[] addTransportToArray(Transport[] resultArray, int i, Transport[] myPark) {
         if (resultArray.length == 0) {
-            resultArray = new InterfaceTransport[1];
+            resultArray = new Transport[1];
             resultArray[0] = myPark[i];
         } else {
-            InterfaceTransport[] tempArray = new InterfaceTransport[resultArray.length + 1];
+            Transport[] tempArray = new Transport[resultArray.length + 1];
             for (int j = 0; j < resultArray.length; j++) {
                 tempArray[j] = resultArray[j];
             }
@@ -62,7 +62,7 @@ public class Park implements InterfaceTaxipark {
     @Override
     public String toString() {
         String result = "";
-        for (InterfaceTransport transport :
+        for (Transport transport :
                 myPark) {
             result += transport.toString() + "\n";
         }
