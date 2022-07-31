@@ -19,10 +19,13 @@ public class CarParkProcessor {
         };
 
         InterfaceTaxipark myPark = new Park(park);
+
         System.out.println(myPark);
         System.out.println(myPark.getTotalCostOfMyPark());
+
         myPark.sortMyPark();
         System.out.println(myPark);
+
         System.out.println();
         printMyPark(myPark.searchByMinAndMaxSpeed(109, 161));
     }

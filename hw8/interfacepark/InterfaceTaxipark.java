@@ -10,4 +10,5 @@ public interface InterfaceTaxipark {
 
     Transport[] searchByMinAndMaxSpeed(int minSpeed, int maxSpeed);
 
+    Transport[] getMyPark();
 }

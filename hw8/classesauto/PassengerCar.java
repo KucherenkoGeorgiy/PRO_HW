@@ -25,6 +25,5 @@ public class PassengerCar extends Transport {
                 ", price=" + this.getPrice() +
                 ", fuelConsumption=" + this.getFuelConsumption() +
                 ", maxSpeed=" + this.getMaxSpeed() + ", isForCourier=" + isForCourier;
-
     }
 }

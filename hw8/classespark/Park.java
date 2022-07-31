@@ -68,4 +68,8 @@ public class Park implements InterfaceTaxipark {
         }
         return result;
     }
+
+    public Transport[] getMyPark() {
+        return myPark;
+    }
 }
