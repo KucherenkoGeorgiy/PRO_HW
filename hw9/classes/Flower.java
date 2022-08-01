@@ -1,4 +1,4 @@
-package com.hillel.kucherenko.hw9;
+package com.hillel.kucherenko.hw9.classes;
 
 public class Flower extends ElementsOfBouquet{
     private int shelfLife;

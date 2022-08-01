@@ -1,6 +1,4 @@
-package com.hillel.kucherenko.hw9;
-
-import java.util.Arrays;
+package com.hillel.kucherenko.hw9.classes;
 
 public class Bouquet {
     private ElementsOfBouquet[] myBouquets;
@@ -37,11 +35,14 @@ public class Bouquet {
     @Override
     public String toString() {
         String result;
+        int totalPrice = 0;
         result = "";
         for (ElementsOfBouquet elementOfBouquet:
              myBouquets) {
-            result += elementOfBouquet.toString() + "\n";
+            result += "\t" + elementOfBouquet.toString() + "\n";
+            totalPrice+= elementOfBouquet.getPrice();
         }
+        result+="\tTOTAL PRICE of Bouquet: " + totalPrice;
         return result;
     }
 }
