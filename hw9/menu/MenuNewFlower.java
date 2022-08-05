@@ -4,14 +4,12 @@ import com.hillel.kucherenko.hw9.BouquetProcessor;
 import com.hillel.kucherenko.hw9.classes.Bouquet;
 import com.hillel.kucherenko.hw9.classes.ElementsOfBouquet;
 import com.hillel.kucherenko.hw9.classes.Flower;
-
 import java.util.Scanner;
-
 import static com.hillel.kucherenko.hw9.utils.GetNumericValueForBouquet.getNumericValueForBouquet;
 import static com.hillel.kucherenko.hw9.utils.IncreaseBouquet.increaseBouquet;
 import static com.hillel.kucherenko.hw9.menu.MenuCreateFlower.createFlower;
 
- class MenuNewFlower {
+class MenuNewFlower {
 
     static void newFlower() {
         String name;
@@ -23,7 +21,6 @@ import static com.hillel.kucherenko.hw9.menu.MenuCreateFlower.createFlower;
         Bouquet[] myBouquet = BouquetProcessor.getMyBouquet();
         int currentItem = BouquetProcessor.getCurrentItem();
         System.out.println("Please input the name of Flower:");
-
         name = scanner.nextLine();
         System.out.println("Please input the price of Flower:");
         price = getNumericValueForBouquet(scanner);
@@ -39,7 +36,6 @@ import static com.hillel.kucherenko.hw9.menu.MenuCreateFlower.createFlower;
             currentItem = 0;
             BouquetProcessor.setMyBouquet(myBouquet);
             BouquetProcessor.setCurrentItem(currentItem);
-
             createFlower();
         } else {
             if (currentItem == -1) {
@@ -56,5 +52,4 @@ import static com.hillel.kucherenko.hw9.menu.MenuCreateFlower.createFlower;
             }
         }
     }
-
 }

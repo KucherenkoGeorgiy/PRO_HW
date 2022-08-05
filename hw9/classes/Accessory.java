@@ -1,6 +1,6 @@
 package com.hillel.kucherenko.hw9.classes;
 
-public class Accessory extends ElementsOfBouquet{
+public class Accessory extends ElementsOfBouquet {
 
     public Accessory(String name, int price) {
         super(name, price);

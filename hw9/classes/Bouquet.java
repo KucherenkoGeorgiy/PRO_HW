@@ -7,21 +7,13 @@ public class Bouquet {
         this.myBouquets = myBouquets;
     }
 
-    public ElementsOfBouquet[] getMyBouquets() {
-        return myBouquets;
-    }
-
-    public void setMyBouquets(ElementsOfBouquet[] myBouquets) {
-        this.myBouquets = myBouquets;
-    }
-
-    public Bouquet searchByStemLength(int min, int max){
+    public Bouquet searchByStemLength(int min, int max) {
         Bouquet resultOfSearch = null;
         for (int i = 0; i < myBouquets.length; i++) {
-            if (myBouquets[i] instanceof Flower){
+            if (myBouquets[i] instanceof Flower) {
                 if (((Flower) myBouquets[i]).getStemLength() > min &&
-                ((Flower) myBouquets[i]).getStemLength() <max){
-                    if (resultOfSearch == null){
+                        ((Flower) myBouquets[i]).getStemLength() < max) {
+                    if (resultOfSearch == null) {
                         resultOfSearch = new Bouquet(new ElementsOfBouquet[]{myBouquets[i]});
                     } else {
                         resultOfSearch.pushNewAccessoryToElements(myBouquets[i].getName(),
@@ -31,43 +23,36 @@ public class Bouquet {
                 }
             }
         }
-
-
         return resultOfSearch;
     }
 
-    public Bouquet sortByShelfLife(){
+    public Bouquet sortByShelfLife() {
         ElementsOfBouquet[] mySortedBouquets = new ElementsOfBouquet[myBouquets.length];
         ElementsOfBouquet tempElementOfBouquet;
         for (int i = 0; i < myBouquets.length; i++) {
             mySortedBouquets[i] = myBouquets[i];
         }
         for (int i = 0; i < mySortedBouquets.length; i++) {
-            for (int j = 0; j < mySortedBouquets.length-1-i; j++) {
-                if (mySortedBouquets[j] instanceof Accessory){
-                    if (mySortedBouquets[j+1] instanceof Flower){
+            for (int j = 0; j < mySortedBouquets.length - 1 - i; j++) {
+                if (mySortedBouquets[j] instanceof Accessory) {
+                    if (mySortedBouquets[j + 1] instanceof Flower) {
                         tempElementOfBouquet = mySortedBouquets[j];
-                        mySortedBouquets[j] = mySortedBouquets[j+1];
-                        mySortedBouquets[j+1] = tempElementOfBouquet;
+                        mySortedBouquets[j] = mySortedBouquets[j + 1];
+                        mySortedBouquets[j + 1] = tempElementOfBouquet;
                     }
-                } else if (mySortedBouquets[j] instanceof Flower && mySortedBouquets[j+1] instanceof Flower){
-                    if (((Flower) mySortedBouquets[j]).getShelfLife() < ((Flower) mySortedBouquets[j+1]).getShelfLife()){
+                } else if (mySortedBouquets[j] instanceof Flower && mySortedBouquets[j + 1] instanceof Flower) {
+                    if (((Flower) mySortedBouquets[j]).getShelfLife() < ((Flower) mySortedBouquets[j + 1]).getShelfLife()) {
                         tempElementOfBouquet = mySortedBouquets[j];
-                        mySortedBouquets[j] = mySortedBouquets[j+1];
-                        mySortedBouquets[j+1] = tempElementOfBouquet;
-
+                        mySortedBouquets[j] = mySortedBouquets[j + 1];
+                        mySortedBouquets[j + 1] = tempElementOfBouquet;
                     }
                 }
-
             }
-
         }
-
-
         return new Bouquet(mySortedBouquets);
     }
 
-    public void pushNewAccessoryToElements (String name, int price){
+    public void pushNewAccessoryToElements(String name, int price) {
         ElementsOfBouquet[] tempElementsOfBouquet = new ElementsOfBouquet[myBouquets.length + 1];
         for (int i = 0; i < myBouquets.length; i++) {
             tempElementsOfBouquet[i] = myBouquets[i];
@@ -75,7 +60,8 @@ public class Bouquet {
         tempElementsOfBouquet[myBouquets.length] = new Accessory(name, price);
         myBouquets = tempElementsOfBouquet;
     }
-    public void pushNewAccessoryToElements (String name, int price, int shelfLife, int stemLength){
+
+    public void pushNewAccessoryToElements(String name, int price, int shelfLife, int stemLength) {
         ElementsOfBouquet[] tempElementsOfBouquet = new ElementsOfBouquet[myBouquets.length + 1];
         for (int i = 0; i < myBouquets.length; i++) {
             tempElementsOfBouquet[i] = myBouquets[i];
@@ -84,11 +70,11 @@ public class Bouquet {
         myBouquets = tempElementsOfBouquet;
     }
 
-    public int getTotalPrice(){
+    public int getTotalPrice() {
         int totalPrice = 0;
-        for (ElementsOfBouquet elementOfBouquet:
+        for (ElementsOfBouquet elementOfBouquet :
                 myBouquets) {
-            totalPrice+= elementOfBouquet.getPrice();
+            totalPrice += elementOfBouquet.getPrice();
         }
         return totalPrice;
     }
@@ -98,12 +84,12 @@ public class Bouquet {
         String result;
         int totalPrice = 0;
         result = "";
-        for (ElementsOfBouquet elementOfBouquet:
-             myBouquets) {
+        for (ElementsOfBouquet elementOfBouquet :
+                myBouquets) {
             result += "\t" + elementOfBouquet.toString() + "\n";
-            totalPrice+= elementOfBouquet.getPrice();
+            totalPrice += elementOfBouquet.getPrice();
         }
-        result+="\tTOTAL PRICE of Bouquet: " + totalPrice;
+        result += "\tTOTAL PRICE of Bouquet: " + totalPrice;
         return result;
     }
 }

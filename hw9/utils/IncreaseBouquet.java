@@ -12,5 +12,4 @@ public class IncreaseBouquet {
         myBouquet = tempBouquet;
         return myBouquet;
     }
-
 }
