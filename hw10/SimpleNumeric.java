@@ -44,6 +44,7 @@ public class SimpleNumeric {
             System.out.println("interrupted exception");
         }
         System.out.println("Final Array sorted: " + Arrays.toString(arrayOfSimple.getFinalArray()));
+        scanner.close();
     }
 
     private static int getInputFromUser(Scanner scanner) {
