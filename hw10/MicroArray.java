@@ -18,7 +18,7 @@ class MicroArray implements Runnable {
         for (int i = min; i <= max; i++) {
             isSimple = false;
             if (i > 1) {
-                for (int j = 2; j < (i); j++) {
+                for (int j = 2; j <= (i / 2); j++) {
                     if (i % j == 0) {
                         isSimple = true;
                         break;
