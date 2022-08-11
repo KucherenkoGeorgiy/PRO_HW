@@ -34,6 +34,10 @@ public class ArrayOfSimple {
             }
         }
 
+        for (int i = 0; i < quantityOfArrays; i++) {
+            myMicroArrays[i].t.start();
+        }
+
         try {
             System.out.println("Waiting for Threads to finish..");
             for (int i = 0; i < quantityOfArrays; i++) {

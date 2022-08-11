@@ -13,7 +13,7 @@ class MicroArray implements Runnable {
         this.min = min;
         this.max = max;
         t = new Thread(this, "Producer ");
-        t.start();
+//        t.start();
     }
 
     private int[] searchForSimpleNumerics(int min, int max) {
