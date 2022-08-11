@@ -4,12 +4,14 @@ class MicroArray implements Runnable {
     private final ArrayOfSimple arrayOfSimple;
     private final int min;
     private final int max;
+    Thread t;
 
     public MicroArray(ArrayOfSimple arrayOfSimple, int min, int max) {
         this.arrayOfSimple = arrayOfSimple;
         this.min = min;
         this.max = max;
-        new Thread(this, "Producer ").start();
+        t = new Thread(this, "Producer ");
+        t.start();
     }
 
     private int[] searchForSimpleNumerics(int min, int max) {

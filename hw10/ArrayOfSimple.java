@@ -5,6 +5,7 @@ public class ArrayOfSimple {
     private final int maxValueofRange;
     private final int quantityOfArrays;
     private int[] finalArray;
+    private final MicroArray[] myMicroArrays;
 
     public int[] getFinalArray() {
         return finalArray;
@@ -14,6 +15,7 @@ public class ArrayOfSimple {
         this.minValueOfRange = minValueOfRange;
         this.maxValueofRange = maxValueofRange;
         this.quantityOfArrays = quantityOfArrays;
+        myMicroArrays = new MicroArray[quantityOfArrays];
     }
 
     public void makeThreads() {
@@ -23,12 +25,24 @@ public class ArrayOfSimple {
         for (int i = minValueOfRange; i < maxValueofRange; i += rangeOfSubarray) {
             counter++;
             if (counter != quantityOfArrays) {
-                new MicroArray(this, i, i + rangeOfSubarray - 1);
+                myMicroArrays[counter-1] =
+                    new MicroArray(this, i, i + rangeOfSubarray - 1);
             } else {
-                new MicroArray(this, i, maxValueofRange);
+                myMicroArrays[counter-1] =
+                    new MicroArray(this, i, maxValueofRange);
                 break;
             }
         }
+
+        try {
+            System.out.println("Waiting for Threads to finish..");
+            for (int i = 0; i < quantityOfArrays; i++) {
+                myMicroArrays[i].t.join();
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted Exception!!");
+        }
+        System.out.println("All threads finished");
     }
 
 
