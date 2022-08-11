@@ -4,7 +4,7 @@ public class MicroArray implements Runnable {
     private final ArrayOfSimple arrayOfSimple;
     private final int min;
     private final int max;
-    private Thread t;
+    private final Thread t;
     private int[] res;
 
 
