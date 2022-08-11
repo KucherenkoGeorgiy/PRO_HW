@@ -23,7 +23,6 @@ public class ArrayOfSimple {
     }
 
     public void makeThreads() {
-
         int rangeOfSubarray = (maxValueOfRange - minValueOfRange) / quantityOfArrays;
         int counter = 0;
         for (int i = minValueOfRange; i < maxValueOfRange; i += rangeOfSubarray) {
@@ -39,18 +38,17 @@ public class ArrayOfSimple {
         }
 
         for (int i = 0; i < quantityOfArrays; i++) {
-            myMicroArrays[i].t.start();
+            myMicroArrays[i].getT().start();
         }
 
         try {
             for (int i = 0; i < quantityOfArrays; i++) {
-                myMicroArrays[i].t.join();
+                myMicroArrays[i].getT().join();
             }
         } catch (InterruptedException e) {
             System.out.println("Interrupted Exception!!");
         }
     }
-
 
     public synchronized void createFinalArray(int[] array) {
         int[] tempArray;

@@ -4,8 +4,8 @@ public class MicroArray implements Runnable {
     private final ArrayOfSimple arrayOfSimple;
     private final int min;
     private final int max;
-    Thread t;
-    int[] res;
+    private Thread t;
+    private int[] res;
 
 
     public MicroArray(ArrayOfSimple arrayOfSimple, int min, int max) {
@@ -13,11 +13,14 @@ public class MicroArray implements Runnable {
         this.min = min;
         this.max = max;
         t = new Thread(this, "Producer ");
-//        t.start();
     }
 
     public int[] getRes() {
         return res;
+    }
+
+    public Thread getT() {
+        return t;
     }
 
     private int[] searchForSimpleNumerics(int min, int max) {
@@ -57,7 +60,6 @@ public class MicroArray implements Runnable {
 
     @Override
     public void run() {
-
         res = searchForSimpleNumerics(min, max);
         arrayOfSimple.createFinalArray(res);
     }
