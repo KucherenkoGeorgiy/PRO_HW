@@ -1,6 +1,6 @@
 package com.hillel.kucherenko.hw10;
 
-class MicroArray implements Runnable {
+public class MicroArray implements Runnable {
     private final ArrayOfSimple arrayOfSimple;
     private final int min;
     private final int max;
@@ -14,6 +14,10 @@ class MicroArray implements Runnable {
         this.max = max;
         t = new Thread(this, "Producer ");
 //        t.start();
+    }
+
+    public int[] getRes() {
+        return res;
     }
 
     private int[] searchForSimpleNumerics(int min, int max) {

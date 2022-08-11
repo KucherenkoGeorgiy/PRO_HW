@@ -3,12 +3,17 @@ package com.hillel.kucherenko.hw10;
 public class ArrayOfSimple {
     private final int minValueOfRange;
     private final int maxValueofRange;
+
     private final int quantityOfArrays;
     private int[] finalArray;
     private final MicroArray[] myMicroArrays;
 
     public int[] getFinalArray() {
         return finalArray;
+    }
+
+    public MicroArray[] getMyMicroArrays() {
+        return myMicroArrays;
     }
 
     public ArrayOfSimple(int minValueOfRange, int maxValueofRange, int quantityOfArrays) {
