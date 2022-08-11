@@ -26,6 +26,7 @@ public class MicroArray implements Runnable {
     private int[] searchForSimpleNumerics(int min, int max) {
         int[] tempResult = new int[]{};
         boolean isSimple;
+
         for (int i = min; i <= max; i++) {
             isSimple = false;
             if (i > 1) {
@@ -45,6 +46,7 @@ public class MicroArray implements Runnable {
 
     private int[] pushElementsToSubArray(int[] tempResult, int i) {
         int[] newTempResult;
+
         if (tempResult.length == 0) {
             tempResult = new int[]{i};
         } else {

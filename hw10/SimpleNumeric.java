@@ -18,9 +18,9 @@ public class SimpleNumeric {
 
         ArrayOfSimple arrayOfSimple = new ArrayOfSimple(minValue, maxValue, quantityOfThreads);
         arrayOfSimple.makeThreads();
-            System.out.println("Final Array: " + Arrays.toString(arrayOfSimple.getFinalArray()));
-            Arrays.sort(arrayOfSimple.getFinalArray());
-            System.out.println("=======================");
+        System.out.println("Final Array: " + Arrays.toString(arrayOfSimple.getFinalArray()));
+        Arrays.sort(arrayOfSimple.getFinalArray());
+        System.out.println("=======================");
         System.out.println("Final Array sorted: " + Arrays.toString(arrayOfSimple.getFinalArray()));
         scanner.close();
     }
@@ -47,6 +47,7 @@ public class SimpleNumeric {
 
     private static int getInputFromUser(Scanner scanner) {
         int usersValue;
+
         while (true) {
             if (scanner.hasNextInt()) {
                 usersValue = scanner.nextInt();

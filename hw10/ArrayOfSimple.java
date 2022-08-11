@@ -28,11 +28,11 @@ public class ArrayOfSimple {
         for (int i = minValueOfRange; i < maxValueOfRange; i += rangeOfSubarray) {
             counter++;
             if (counter != quantityOfArrays) {
-                myMicroArrays[counter-1] =
-                    new MicroArray(this, i, i + rangeOfSubarray - 1);
+                myMicroArrays[counter - 1] =
+                        new MicroArray(this, i, i + rangeOfSubarray - 1);
             } else {
-                myMicroArrays[counter-1] =
-                    new MicroArray(this, i, maxValueOfRange);
+                myMicroArrays[counter - 1] =
+                        new MicroArray(this, i, maxValueOfRange);
                 break;
             }
         }
@@ -53,6 +53,7 @@ public class ArrayOfSimple {
     public synchronized void createFinalArray(int[] array) {
         int[] tempArray;
         int quantityOfElementsOfFinalArray;
+
         if (finalArray == null) {
             finalArray = array;
         } else {
