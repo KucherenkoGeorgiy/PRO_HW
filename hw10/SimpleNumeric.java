@@ -4,15 +4,28 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class SimpleNumeric {
+    static int minValue;
+    static int maxValue;
+    static int quantityOfThreads;
+
 
     public static void main(String[] args) {
-        int minValue;
-        int maxValue;
-        int quantityOfThreads;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Now you have to input MIN and MAX values of range");
 
+        receiveAllNeededData(scanner);
+
+        ArrayOfSimple arrayOfSimple = new ArrayOfSimple(minValue, maxValue, quantityOfThreads);
+        arrayOfSimple.makeThreads();
+            System.out.println("Final Array: " + Arrays.toString(arrayOfSimple.getFinalArray()));
+            Arrays.sort(arrayOfSimple.getFinalArray());
+            System.out.println("=======================");
+        System.out.println("Final Array sorted: " + Arrays.toString(arrayOfSimple.getFinalArray()));
+        scanner.close();
+    }
+
+    private static void receiveAllNeededData(Scanner scanner) {
         while (true) {
             System.out.println("Please type min value");
             minValue = getInputFromUser(scanner);
@@ -30,14 +43,6 @@ public class SimpleNumeric {
                         + "Please, try again!\n");
             }
         }
-
-        ArrayOfSimple arrayOfSimple = new ArrayOfSimple(minValue, maxValue, quantityOfThreads);
-        arrayOfSimple.makeThreads();
-            System.out.println("Final Array: " + Arrays.toString(arrayOfSimple.getFinalArray()));
-            Arrays.sort(arrayOfSimple.getFinalArray());
-            System.out.println("=======================");
-        System.out.println("Final Array sorted: " + Arrays.toString(arrayOfSimple.getFinalArray()));
-        scanner.close();
     }
 
     private static int getInputFromUser(Scanner scanner) {

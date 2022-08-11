@@ -7,19 +7,19 @@ public class ArrayOfSimple {
     private int[] finalArray;
     private final MicroArray[] myMicroArrays;
 
+    public ArrayOfSimple(int minValueOfRange, int maxValueofRange, int quantityOfArrays) {
+        this.minValueOfRange = minValueOfRange;
+        this.maxValueOfRange = maxValueofRange;
+        this.quantityOfArrays = quantityOfArrays;
+        myMicroArrays = new MicroArray[quantityOfArrays];
+    }
+
     public int[] getFinalArray() {
         return finalArray;
     }
 
     public MicroArray[] getMyMicroArrays() {
         return myMicroArrays;
-    }
-
-    public ArrayOfSimple(int minValueOfRange, int maxValueofRange, int quantityOfArrays) {
-        this.minValueOfRange = minValueOfRange;
-        this.maxValueOfRange = maxValueofRange;
-        this.quantityOfArrays = quantityOfArrays;
-        myMicroArrays = new MicroArray[quantityOfArrays];
     }
 
     public void makeThreads() {
