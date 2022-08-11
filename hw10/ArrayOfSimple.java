@@ -2,8 +2,7 @@ package com.hillel.kucherenko.hw10;
 
 public class ArrayOfSimple {
     private final int minValueOfRange;
-    private final int maxValueofRange;
-
+    private final int maxValueOfRange;
     private final int quantityOfArrays;
     private int[] finalArray;
     private final MicroArray[] myMicroArrays;
@@ -18,23 +17,23 @@ public class ArrayOfSimple {
 
     public ArrayOfSimple(int minValueOfRange, int maxValueofRange, int quantityOfArrays) {
         this.minValueOfRange = minValueOfRange;
-        this.maxValueofRange = maxValueofRange;
+        this.maxValueOfRange = maxValueofRange;
         this.quantityOfArrays = quantityOfArrays;
         myMicroArrays = new MicroArray[quantityOfArrays];
     }
 
     public void makeThreads() {
 
-        int rangeOfSubarray = (maxValueofRange - minValueOfRange) / quantityOfArrays;
+        int rangeOfSubarray = (maxValueOfRange - minValueOfRange) / quantityOfArrays;
         int counter = 0;
-        for (int i = minValueOfRange; i < maxValueofRange; i += rangeOfSubarray) {
+        for (int i = minValueOfRange; i < maxValueOfRange; i += rangeOfSubarray) {
             counter++;
             if (counter != quantityOfArrays) {
                 myMicroArrays[counter-1] =
                     new MicroArray(this, i, i + rangeOfSubarray - 1);
             } else {
                 myMicroArrays[counter-1] =
-                    new MicroArray(this, i, maxValueofRange);
+                    new MicroArray(this, i, maxValueOfRange);
                 break;
             }
         }
@@ -44,14 +43,12 @@ public class ArrayOfSimple {
         }
 
         try {
-            System.out.println("Waiting for Threads to finish..");
             for (int i = 0; i < quantityOfArrays; i++) {
                 myMicroArrays[i].t.join();
             }
         } catch (InterruptedException e) {
             System.out.println("Interrupted Exception!!");
         }
-        System.out.println("All threads finished");
     }
 
 
