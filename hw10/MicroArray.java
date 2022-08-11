@@ -5,6 +5,8 @@ class MicroArray implements Runnable {
     private final int min;
     private final int max;
     Thread t;
+    int[] res;
+
 
     public MicroArray(ArrayOfSimple arrayOfSimple, int min, int max) {
         this.arrayOfSimple = arrayOfSimple;
@@ -51,7 +53,6 @@ class MicroArray implements Runnable {
 
     @Override
     public void run() {
-        int[] res;
 
         res = searchForSimpleNumerics(min, max);
         arrayOfSimple.createFinalArray(res);
