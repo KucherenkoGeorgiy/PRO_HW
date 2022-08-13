@@ -7,7 +7,7 @@ public class Task31 {
         int[] smallArray = {6, 12, 313};
         int tempValue;
         boolean isCorrect = false;
-//this is for testing github
+
         for (int i = 0; i < (bigArray.length - smallArray.length + 1); i++) {
             if (bigArray[i] == smallArray[0]) {
                 tempValue = i + 1;
