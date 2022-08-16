@@ -59,23 +59,6 @@ public class Park implements InterfaceTaxipark {
         return resultArray;
     }
 
-//    private Transport[] addTransportToArray(Transport transport) {
-//        if (myPark == null) {
-//            myPark = new Transport[1];
-//            resultArray = new Transport[1];
-//            resultArray[0] = myPark[i];
-//        } else {
-//            Transport[] tempArray = new Transport[resultArray.length + 1];
-//            for (int j = 0; j < resultArray.length; j++) {
-//                tempArray[j] = resultArray[j];
-//            }
-//            tempArray[tempArray.length - 1] = myPark[i];
-//            resultArray = tempArray;
-//        }
-//        return resultArray;
-//    }
-
-
     @Override
     public String toString() {
         String result = "";

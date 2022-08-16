@@ -20,8 +20,8 @@ public class IOutProcessor {
 
     public void saveToFile(Park myPark) {
         try (FileOutputStream fout = new FileOutputStream(this.fileName)) {
-            byte[] someBytes = transferMyParkToArrayOfBytes(myPark);
-            fout.write(someBytes);
+            byte[] myParkInArrayOfBytes = transferMyParkToArrayOfBytes(myPark);
+            fout.write(myParkInArrayOfBytes);
             System.out.println("Successfully saved to file!");
         } catch (IOException e) {
             System.out.println("I/O exception: " + e);
