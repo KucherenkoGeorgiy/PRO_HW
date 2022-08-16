@@ -44,7 +44,7 @@ public class IOutProcessor {
         } catch (FileNotFoundException e) {
             System.out.println("File not found exception: " + e);
         } catch (IOException e) {
-            System.out.println("IO Exception occurred" + e);
+            System.out.println("IO Exception occurred: " + e);
         }
         tempResultArray = resultString.split(";\n");
         for (int j = 0; j < tempResultArray.length; j++) {
