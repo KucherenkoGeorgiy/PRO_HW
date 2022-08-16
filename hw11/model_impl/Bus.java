@@ -16,10 +16,6 @@ public class Bus extends Transport {
         return quantityOfPassengers;
     }
 
-    public void setQuantityOfPassengers(int quantityOfPassengers) {
-        this.quantityOfPassengers = quantityOfPassengers;
-    }
-
     @Override
     public String toString() {
         return "Type of Transport: \'BUS\', yearOfProduceOfTransport=" + this.getYearOfProduceOfTransport() +

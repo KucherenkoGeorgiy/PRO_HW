@@ -4,7 +4,7 @@ package com.hillel.kucherenko.hw11.model_impl;
 import com.hillel.kucherenko.hw11.model.Transport;
 
 public class PassengerCar extends Transport {
-    private boolean isForCourier;
+    private final boolean isForCourier;
 
     public PassengerCar(int yearOfProduceOfTransport, String brandOfTransport, String modelOfTransport, int price, double fuelConsumption, int maxSpeed, boolean isForCourier) {
         super(yearOfProduceOfTransport, brandOfTransport, modelOfTransport, price, fuelConsumption, maxSpeed);
@@ -14,10 +14,6 @@ public class PassengerCar extends Transport {
 
     public boolean getIsForCourier() {
         return isForCourier;
-    }
-
-    public void setForCourier(boolean forCourier) {
-        isForCourier = forCourier;
     }
 
     @Override

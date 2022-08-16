@@ -4,7 +4,7 @@ import com.hillel.kucherenko.hw11.model.Transport;
 import com.hillel.kucherenko.hw11.Taxipark.InterfaceTaxipark;
 
 public class Park implements InterfaceTaxipark {
-    private Transport[] myPark;
+    private final Transport[] myPark;
 
     public Park(Transport[] myPark) {
         this.myPark = myPark;

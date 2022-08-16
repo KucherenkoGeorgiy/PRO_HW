@@ -3,11 +3,11 @@ package com.hillel.kucherenko.hw11.model;
 
 public abstract class Transport {
     protected String typeOfTransport;
-    private int yearOfProduceOfTransport;
-    private String brandOfTransport;
-    private String modelOfTransport;
+    private final int yearOfProduceOfTransport;
+    private final String brandOfTransport;
+    private final String modelOfTransport;
     private int price;
-    private double fuelConsumption;
+    private final double fuelConsumption;
     private int maxSpeed;
 
     public Transport(int yearOfProduceOfTransport, String brandOfTransport, String modelOfTransport, int price, double fuelConsumption, int maxSpeed) {
@@ -27,29 +27,16 @@ public abstract class Transport {
         return yearOfProduceOfTransport;
     }
 
-    public void setYearOfProduceOfTransport(int yearOfProduceOfTransport) {
-        this.yearOfProduceOfTransport = yearOfProduceOfTransport;
-    }
-
-    public void setTypeOfTransport(String typeOfTransport) {
-        this.typeOfTransport = typeOfTransport;
-    }
 
     public String getBrandOfTransport() {
         return brandOfTransport;
     }
 
-    public void setBrandOfTransport(String brandOfTransport) {
-        this.brandOfTransport = brandOfTransport;
-    }
 
     public String getModelOfTransport() {
         return modelOfTransport;
     }
 
-    public void setModelOfTransport(String modelOfTransport) {
-        this.modelOfTransport = modelOfTransport;
-    }
 
     public int getPrice() {
         return price;
@@ -63,9 +50,6 @@ public abstract class Transport {
         return fuelConsumption;
     }
 
-    public void setFuelConsumption(double fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
-    }
 
     public int getMaxSpeed() {
         return maxSpeed;
