@@ -105,7 +105,6 @@ public class MyLinkedList<T> {
         } else if (index < 0) {
             throw new NoSuchElementException("Index cannot be negative! You are "
                     + "trying to reach index " + index);
-
         } else {
             while (true) {
                 if (currentElement.next != null) {
