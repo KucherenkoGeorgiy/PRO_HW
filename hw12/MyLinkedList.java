@@ -1,8 +1,11 @@
 package com.hillel.kucherenko.hw12;
 
 
+import java.util.NoSuchElementException;
+
 public class MyLinkedList<T> {
     private final Node first = new Node();
+    private int size;
 
     public MyLinkedList() {
     }
@@ -33,7 +36,11 @@ public class MyLinkedList<T> {
         return result;
     }
 
-    public Node searchForLastNode() {
+    public T getValue(int index) {
+        return searchForIndex(index).getValue();
+    }
+
+    private Node searchForLastNode() {
         Node currentElement = first.next;
         while (true) {
             if (currentElement.next != null) {
@@ -54,10 +61,13 @@ public class MyLinkedList<T> {
         } else {
             searchForLastNode().next = node;
         }
+
+        size++;
     }
 
     public void addElementToTheBeginningOfList(T value) {
         Node node = new Node();
+
         node.value = value;
         if (first.next != null) {
             Node tempNOde = first.next;
@@ -66,46 +76,42 @@ public class MyLinkedList<T> {
         } else {
             first.next = node;
         }
+        size++;
     }
 
     public void addElementByIndex(T value, int index) {
         if (index >= 1) {
             Node node = new Node();
             node.value = value;
-            try {
-
-                Node tempNode = searchForIndex(index - 1);
-                node.next = tempNode.next;
-                tempNode.next = node;
-
-            } catch (IndexOutOfBoundsException | NullPointerException e) {
-                System.out.println("Exception caught! " + e.getMessage());//+ e.getMessage()
-            }
-
+            Node tempNode = searchForIndex(index - 1);
+            node.next = tempNode.next;
+            tempNode.next = node;
+            size++;
         } else if (index == 0) {
             addElementToTheBeginningOfList(value);
-
-        } else {
-            System.out.println("Wrong input! Index cannot be negative!");
         }
     }
 
-    public Node searchForIndex(int index) throws IndexOutOfBoundsException, NullPointerException {
+    private Node searchForIndex(int index) {
         int counter = 0;
         Node currentElement = first.next;
-        if (currentElement.next != null) {
+
+        if (index + 1 >= size) {
+            throw new NoSuchElementException("There are no element with searched"
+                    + " index: " + index + " (length of list is " + size + ")");
+        } else if (index < 0) {
+            throw new NoSuchElementException("Index cannot be negative! You are "
+                    + "trying to reach index " + index);
+
+        } else {
             while (true) {
                 if (currentElement.next != null) {
                     if (counter == index) return currentElement;
                     currentElement = currentElement.next;
                     counter++;
                     if (counter == index) return currentElement;
-                } else {
-                    throw new IndexOutOfBoundsException();
                 }
             }
-        } else {
-            throw new NullPointerException("List is Empty! Cannot do it!");
         }
     }
 
@@ -114,22 +120,26 @@ public class MyLinkedList<T> {
             System.out.println("List is empty. Cannot do it");
         } else {
             first.next = first.next.next;
+            size--;
         }
     }
 
     public void deleteLastElement() {
         searchForIndex(getLength() - 2).next = null;
+        size--;
     }
 
     public void deleteElementByIndex(int index) {
         int lengthOfList = getLength();
 
         if (index < 0 || index + 1 > lengthOfList) {
-            throw new IndexOutOfBoundsException("Incorrect Input!");
+            throw new NoSuchElementException("Exception caught! You are trying to delete"
+                    + " element with index " + index + " but the size of list is " + size);
         }
 
         Node node = searchForIndex(index - 1);
         node.next = node.next.next;
+        size--;
     }
 
     public void inverseElements(int a, int b) {
@@ -137,9 +147,8 @@ public class MyLinkedList<T> {
         int max = Math.max(a, b);
         int currentLength = getLength();
         if ((max > currentLength - 1) || (min < 0) || (max == min)) {
-            System.out.println("Impossible operation! Check Indexes! By the way.. Length of out list is " + getLength());
+            throw new NoSuchElementException("Wrong input. Size of list is " + size);
         } else {
-
             Node tempMin = searchForIndex(min);
             Node tempMax = searchForIndex(max);
 
@@ -170,28 +179,14 @@ public class MyLinkedList<T> {
     }
 
     public int getLength() {
-        int length = 0;
-        Node currentElement = first.next;
-        if (first.next != null) {
-            while ((currentElement) != null) {
-                currentElement = currentElement.next;
-                length++;
-            }
-        } else {
-            return 0;
-        }
-        return length;
+        return size;
     }
 
     public boolean isEmptyList() {
-        if (first.next == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return size == 0;
     }
 
-    public class Node {
+    private class Node {
         private T value;
         private Node next;
 
