@@ -15,11 +15,14 @@ public class MyLinkedList<T> {
     }
 
     private void initLinkedList(T[] inputArray) {
-        for (int i = 0; i < inputArray.length; i++) {
-            if (i == 0) {
-                addElementToTheBeginningOfList(inputArray[i]);
-            } else {
-                addElementToTheEndOfList(inputArray[i]);
+        int lengthOfInputArray = inputArray.length;
+
+        if (lengthOfInputArray > 0) {
+            addElementToTheBeginningOfList(inputArray[0]);
+            if (lengthOfInputArray > 1) {
+                for (int i = 1; i < inputArray.length; i++) {
+                    addElementToTheEndOfList(inputArray[i]);
+                }
             }
         }
     }
