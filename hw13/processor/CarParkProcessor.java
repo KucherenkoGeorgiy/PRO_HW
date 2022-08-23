@@ -1,10 +1,10 @@
 package com.hillel.kucherenko.hw13.processor;
 
-import com.hillel.kucherenko.hw13.Taxipark_impl.Park;
+import com.hillel.kucherenko.hw13.Taxiparkimpl.Park;
 import com.hillel.kucherenko.hw13.model.Transport;
-import com.hillel.kucherenko.hw13.model_impl.Bus;
-import com.hillel.kucherenko.hw13.model_impl.PassengerCar;
-import com.hillel.kucherenko.hw13.model_impl.Truck;
+import com.hillel.kucherenko.hw13.modelimpl.Bus;
+import com.hillel.kucherenko.hw13.modelimpl.PassengerCar;
+import com.hillel.kucherenko.hw13.modelimpl.Truck;
 
 public class CarParkProcessor {
 

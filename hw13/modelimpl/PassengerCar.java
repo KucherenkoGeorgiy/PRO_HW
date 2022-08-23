@@ -1,4 +1,4 @@
-package com.hillel.kucherenko.hw13.model_impl;
+package com.hillel.kucherenko.hw13.modelimpl;
 
 
 import com.hillel.kucherenko.hw13.model.Transport;

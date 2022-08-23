@@ -1,8 +1,7 @@
-package com.hillel.kucherenko.hw13.Taxipark_impl;
+package com.hillel.kucherenko.hw13.Taxiparkimpl;
 
 import com.hillel.kucherenko.hw13.Taxipark.InterfaceTaxipark;
 import com.hillel.kucherenko.hw13.model.Transport;
-import com.hillel.kucherenko.hw13.utils.ComparatorByFuelCons;
 
 import java.util.Arrays;
 import java.util.Comparator;
