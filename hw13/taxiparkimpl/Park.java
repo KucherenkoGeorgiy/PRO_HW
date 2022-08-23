@@ -32,7 +32,6 @@ public class Park implements InterfaceTaxipark {
 
     public void sortWithMethod() {
         Arrays.sort(myPark, Comparator.comparing(Transport::getFuelConsumption));
-
     }
 
     public void sortWithInterface() {
