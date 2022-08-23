@@ -1,6 +1,6 @@
 package com.hillel.kucherenko.hw13.processor;
 
-import com.hillel.kucherenko.hw13.Taxiparkimpl.Park;
+import com.hillel.kucherenko.hw13.taxiparkimpl.Park;
 import com.hillel.kucherenko.hw13.model.Transport;
 import com.hillel.kucherenko.hw13.modelimpl.Bus;
 import com.hillel.kucherenko.hw13.modelimpl.PassengerCar;

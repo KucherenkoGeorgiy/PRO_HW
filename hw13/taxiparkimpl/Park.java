@@ -1,6 +1,6 @@
-package com.hillel.kucherenko.hw13.Taxiparkimpl;
+package com.hillel.kucherenko.hw13.taxiparkimpl;
 
-import com.hillel.kucherenko.hw13.Taxipark.InterfaceTaxipark;
+import com.hillel.kucherenko.hw13.taxipark.InterfaceTaxipark;
 import com.hillel.kucherenko.hw13.model.Transport;
 
 import java.util.Arrays;

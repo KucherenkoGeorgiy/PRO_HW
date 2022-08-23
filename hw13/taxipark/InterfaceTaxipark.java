@@ -1,4 +1,4 @@
-package com.hillel.kucherenko.hw13.Taxipark;
+package com.hillel.kucherenko.hw13.taxipark;
 
 import com.hillel.kucherenko.hw13.model.Transport;
 
