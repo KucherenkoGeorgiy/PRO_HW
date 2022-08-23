@@ -4,7 +4,7 @@ package com.hillel.kucherenko.hw12;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<T> {
-    private final Node first = new Node();
+    private Node first = new Node();
     private int size;
 
     public MyLinkedList() {
@@ -31,11 +31,15 @@ public class MyLinkedList<T> {
     @Override
     public String toString() {
         Node currentElement = first.next;
-        String result = "Our List:\n";
+        String result = "[";
         while ((currentElement) != null) {
-            result += (currentElement.value) + "\n";
+            result += (currentElement.value);
+            if (currentElement.next != null){
+                result += ", ";
+            }
             currentElement = currentElement.next;
         }
+        result +="]";
         return result;
     }
 
@@ -127,7 +131,13 @@ public class MyLinkedList<T> {
     }
 
     public void deleteLastElement() {
-        searchForIndex(getLength() - 2).next = null;
+        if (size > 2) {
+            searchForIndex(getLength() - 2).next = null;
+        } else if (size == 2) {
+            searchForIndex(0).next = null;
+        }else {
+            first = new Node();
+        }
         size--;
     }
 
