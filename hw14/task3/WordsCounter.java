@@ -11,6 +11,6 @@ public class WordsCounter {
         IOutProcessor iOutProcessor = new IOutProcessor("someFile23.txt");
         String inputText = iOutProcessor.loadFromFile();
         WordsAnalyzer wordsAnalyzer = new WordsAnalyzer(inputText);
-        HashMap<String, Integer> resultList = wordsAnalyzer.analyzeText();
+        HashMap<String, Integer> resultList = wordsAnalyzer.getMapFromText();
     }
 }

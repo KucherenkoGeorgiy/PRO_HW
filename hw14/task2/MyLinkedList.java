@@ -63,13 +63,11 @@ public class MyLinkedList<T> implements Iterable {
         Node node = new Node();
 
         node.value = value;
-
         if (this.first.next == null) {
             this.first.next = node;
         } else {
             searchForLastNode().next = node;
         }
-
         size++;
     }
 

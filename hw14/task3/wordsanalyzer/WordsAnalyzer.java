@@ -6,12 +6,11 @@ public class WordsAnalyzer {
     private String inputText;
     private HashMap<String, Integer> wordsList = new HashMap<>();
 
-
     public WordsAnalyzer(String inputText) {
         this.inputText = inputText;
     }
 
-    public HashMap<String, Integer> analyzeText() {
+    public HashMap<String, Integer> getMapFromText() {
         String resultString = inputText;
         String[] tempResultArray;
 
@@ -32,9 +31,9 @@ public class WordsAnalyzer {
     }
 
     private void printResultWordsList() {
-        for (String keyOf :
+        for (String wordKey :
                 wordsList.keySet()) {
-            System.out.println(keyOf + " - " + wordsList.get(keyOf));
+            System.out.println(wordKey + " - " + wordsList.get(wordKey));
         }
     }
 }

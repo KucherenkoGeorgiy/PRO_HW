@@ -17,7 +17,6 @@ public class Park implements InterfaceTaxipark {
         myPark.sort(new ComparatorByFuelCons());
     }
 
-
     public int getTotalCostOfMyPark() {
         int totalCost = 0;
 
