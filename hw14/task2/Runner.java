@@ -33,7 +33,7 @@ public class Runner {
 
         Iterator<Integer> myIterator = myNewList.iterator();
         System.out.println("RESULT OF ITERATOR:.......");
-        while (myIterator.hasNext()){
+        while (myIterator.hasNext()) {
             System.out.println(myIterator.next());
         }
 
@@ -41,9 +41,6 @@ public class Runner {
 
         Iterator<Integer> myIterator2 = myNewList.iterator();
         myNewList.forEach(System.out::println);
-
-
-
     }
 }
 

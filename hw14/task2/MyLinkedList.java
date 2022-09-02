@@ -29,19 +29,18 @@ public class MyLinkedList<T> implements Iterable {
         }
     }
 
-
     @Override
     public String toString() {
         Node currentElement = first.next;
         String result = "[";
         while ((currentElement) != null) {
             result += (currentElement.value);
-            if (currentElement.next != null){
+            if (currentElement.next != null) {
                 result += ", ";
             }
             currentElement = currentElement.next;
         }
-        result +="]";
+        result += "]";
         return result;
     }
 
@@ -137,7 +136,7 @@ public class MyLinkedList<T> implements Iterable {
             searchForIndex(getLength() - 2).next = null;
         } else if (size == 2) {
             searchForIndex(0).next = null;
-        }else {
+        } else {
             first = new Node();
         }
         size--;
@@ -212,6 +211,7 @@ public class MyLinkedList<T> implements Iterable {
 
     class MyLinkedListIterator implements Iterator<T> {
         Node current = first;
+
         public boolean hasNext() {
             if (current.next != null) {
                 return true;
