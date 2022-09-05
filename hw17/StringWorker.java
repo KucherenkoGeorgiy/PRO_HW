@@ -15,11 +15,11 @@ public class StringWorker {
         this.inputString = inputString;
     }
 
-    public HashMap<String, Integer> getRepeatsOfWords(){
+    public HashMap<String, Integer> getRepeatsOfWords() {
         String[] arrayOfWords = patternSeparator.split(this.inputString);
 
         for (int i = 0; i < arrayOfWords.length; i++) {
-            if (repeatedWords.containsKey(arrayOfWords[i].toUpperCase())){
+            if (repeatedWords.containsKey(arrayOfWords[i].toUpperCase())) {
                 repeatedWords.put(arrayOfWords[i].toUpperCase(), repeatedWords.get(arrayOfWords[i].toUpperCase()) + 1);
             } else {
                 repeatedWords.put(arrayOfWords[i].toUpperCase(), 1);
@@ -30,37 +30,37 @@ public class StringWorker {
     }
 
     public void printRepeatsOfWords() {
-        if (repeatedWords.isEmpty()){
+        if (repeatedWords.isEmpty()) {
             getRepeatsOfWords();
         }
         System.out.println("below is a list of words with repeats quantity:");
         repeatedWords.entrySet().forEach(System.out::println);
     }
 
-    public void changeKSymbolInAllWords(int k, char newSymbol){
+    public void changeKSymbolInAllWords(int k, char newSymbol) {
         Matcher wordsMatcher = wordsPattern.matcher(this.inputString);
-        StringBuilder newInputString= new StringBuilder(inputString);
+        StringBuilder stringBuilder = new StringBuilder(inputString);
 
-        while (wordsMatcher.find()){
-            if (wordsMatcher.end() - wordsMatcher.start() >= k){
-                newInputString.deleteCharAt(wordsMatcher.start() + k-1);
-                newInputString.insert(wordsMatcher.start() + k-1, newSymbol);
+        while (wordsMatcher.find()) {
+            if (wordsMatcher.end() - wordsMatcher.start() >= k) {
+                stringBuilder.deleteCharAt(wordsMatcher.start() + k - 1);
+                stringBuilder.insert(wordsMatcher.start() + k - 1, newSymbol);
             }
         }
-        this.inputString = newInputString.toString();
-        System.out.println(newInputString);
+        this.inputString = stringBuilder.toString();
+        System.out.println(stringBuilder);
     }
 
-    public void printWordsWithEqualFirstAndLastSymbol(){
+    public void printWordsWithEqualFirstAndLastSymbol() {
         String[] arrayOfWords = patternSeparator.split(this.inputString);
 
-                Arrays.stream(arrayOfWords)
-                        .filter((s) -> s.length() > 1)
-                        .filter((s) -> s.toUpperCase().charAt(0) == s.toUpperCase().charAt(s.length()-1))
-                        .distinct().forEach(System.out::println);
+        Arrays.stream(arrayOfWords)
+                .filter((s) -> s.length() > 1)
+                .filter((s) -> s.toUpperCase().charAt(0) == s.toUpperCase().charAt(s.length() - 1))
+                .distinct().forEach(System.out::println);
     }
 
-    public int countPunctuationMarks(){
+    public int countPunctuationMarks() {
         Matcher mat = patternPunctuationMarks.matcher(inputString);
         return (int) mat.results().count();
     }
