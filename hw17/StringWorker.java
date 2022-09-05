@@ -1,16 +1,14 @@
 package com.hillel.kucherenko.hw17;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringWorker {
     private String inputString;
     private HashMap<String, Integer> repeatedWords = new HashMap<>();
-    private static final Pattern patternSeparator = Pattern.compile("[ ,.!?-]");
+    private static final Pattern patternSeparator = Pattern.compile("[\n ,.!?\\u2014-]");
+    private static final Pattern patternPunctuationMarks = Pattern.compile("[,.!?\\u2014-]");
     private static final Pattern wordsPattern = Pattern.compile("[A-Za-z]+");
 
     public StringWorker(String inputString) {
@@ -27,6 +25,7 @@ public class StringWorker {
                 repeatedWords.put(arrayOfWords[i].toUpperCase(), 1);
             }
         }
+        repeatedWords.remove("");
         return repeatedWords;
     }
 
@@ -56,14 +55,13 @@ public class StringWorker {
         String[] arrayOfWords = patternSeparator.split(this.inputString);
 
                 Arrays.stream(arrayOfWords)
-                        .filter((s) -> s.substring(0, 1).equalsIgnoreCase(s.substring(s.length() - 1)))
-                        .forEach(System.out::println);
+                        .filter((s) -> s.length() > 1)
+                        .filter((s) -> s.toUpperCase().charAt(0) == s.toUpperCase().charAt(s.length()-1))
+                        .distinct().forEach(System.out::println);
     }
 
     public int countPunctuationMarks(){
-
-
-
-        return 0;
+        Matcher mat = patternPunctuationMarks.matcher(inputString);
+        return (int) mat.results().count();
     }
 }
