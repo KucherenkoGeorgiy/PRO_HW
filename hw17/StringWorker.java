@@ -5,22 +5,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringWorker {
-    private String inputString;
-    private HashMap<String, Integer> repeatedWords = new HashMap<>();
-    private static final Pattern patternSeparator = Pattern.compile("[\n ,.!?\\u2014-]");
-    private static final Pattern patternPunctuationMarks = Pattern.compile("[,.!?\\u2014-]");
-    private static final Pattern wordsPattern = Pattern.compile("[A-Za-z]+");
+    private String usersInputString;
+    private static final Pattern PATTERN_SEPARATOR = Pattern.compile("[\n ,.!?\\u2014-]");
+    private static final Pattern PATTERN_PUNCTUATION_MARKS = Pattern.compile("[,.!?\\u2014-]");
+    private static final Pattern WORDS_PATTERN = Pattern.compile("[A-Za-z]+");
 
-    public StringWorker(String inputString) {
-        this.inputString = inputString;
+    public StringWorker(String usersInputString) {
+        this.usersInputString = usersInputString;
     }
 
     public HashMap<String, Integer> getRepeatsOfWords() {
-        String[] arrayOfWords = patternSeparator.split(this.inputString);
+        HashMap<String, Integer> repeatedWords = new HashMap<>();
+        String[] arrayOfWords = PATTERN_SEPARATOR.split(this.usersInputString);
 
         for (int i = 0; i < arrayOfWords.length; i++) {
             if (repeatedWords.containsKey(arrayOfWords[i].toUpperCase())) {
-                repeatedWords.put(arrayOfWords[i].toUpperCase(), repeatedWords.get(arrayOfWords[i].toUpperCase()) + 1);
+                repeatedWords.put(arrayOfWords[i].toUpperCase(),
+                        repeatedWords.get(arrayOfWords[i].toUpperCase()) + 1);
             } else {
                 repeatedWords.put(arrayOfWords[i].toUpperCase(), 1);
             }
@@ -29,17 +30,13 @@ public class StringWorker {
         return repeatedWords;
     }
 
-    public void printRepeatsOfWords() {
-        if (repeatedWords.isEmpty()) {
-            getRepeatsOfWords();
-        }
-        System.out.println("below is a list of words with repeats quantity:");
+    public void printRepeatsOfWords(HashMap<String, Integer> repeatedWords) {
         repeatedWords.entrySet().forEach(System.out::println);
     }
 
     public void changeKSymbolInAllWords(int k, char newSymbol) {
-        Matcher wordsMatcher = wordsPattern.matcher(this.inputString);
-        StringBuilder stringBuilder = new StringBuilder(inputString);
+        Matcher wordsMatcher = WORDS_PATTERN.matcher(this.usersInputString);
+        StringBuilder stringBuilder = new StringBuilder(usersInputString);
 
         while (wordsMatcher.find()) {
             if (wordsMatcher.end() - wordsMatcher.start() >= k) {
@@ -47,12 +44,11 @@ public class StringWorker {
                 stringBuilder.insert(wordsMatcher.start() + k - 1, newSymbol);
             }
         }
-        this.inputString = stringBuilder.toString();
-        System.out.println(stringBuilder);
+        this.usersInputString = stringBuilder.toString();
     }
 
     public void printWordsWithEqualFirstAndLastSymbol() {
-        String[] arrayOfWords = patternSeparator.split(this.inputString);
+        String[] arrayOfWords = PATTERN_SEPARATOR.split(this.usersInputString);
 
         Arrays.stream(arrayOfWords)
                 .filter((s) -> s.length() > 1)
@@ -61,7 +57,11 @@ public class StringWorker {
     }
 
     public int countPunctuationMarks() {
-        Matcher mat = patternPunctuationMarks.matcher(inputString);
+        Matcher mat = PATTERN_PUNCTUATION_MARKS.matcher(usersInputString);
         return (int) mat.results().count();
+    }
+
+    public String getUsersInputString() {
+        return usersInputString;
     }
 }
